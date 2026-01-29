@@ -6,7 +6,7 @@ const CONFIG = {
     name: "Elena Smmith",
     role: " Dra.Ginecología y Obstetricia",
     city: "Roma Sur",
-    avatar: "logo1.png"
+    avatar: "logo.png"
   },
   contact: {
     phone: "+52 3343340062",
