@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>volante web</title>
+
+  <!-- Meta OG para compartir -->
+  <meta property="og:title" content="volante web" />
+  <meta property="og:description" content="Tarjeta digital interactiva con enlaces directos a WhatsApp, portafolio, tienda y más." />
+  <meta property="og:image" content="creaciones.19" />
+  <meta property="og:url" content="creaciones.19" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="creaciones.19" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="volanteweb" />
+  <meta name="twitter:description" content="Tarjeta digital interactiva con enlaces directos a WhatsApp, portafolio, tienda y más." />
+  <meta name="twitter:image" content="imagen.jpg" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <main class="wrap">
+
+    <!-- Header con foto y nombre -->
+    <header class="card">
+      <div class="avatar">
+        <img id="avatarImg" src="logo1.png" alt="Avatar">
+      </div>
+      <div class="head-txt">
+        <h1 id="ownerName">Elena Smith</h1>
+        <p id="ownerRole">Dr. Ginecologa</p>
+        <span class="badge" id="ownerCity">Roma Sur</span>
+      </div>
+
+      <!-- Botones Compartir / Guardar -->
+      <div class="actions">
+        <button id="shareBtn" class="btn share">
+          <i class="fa fa-share-alt"></i> Compartir
+        </button>
+        <button id="saveBtn" class="btn save">
+          <i class="fa fa-user-plus"></i> Guardar
+        </button>
+      </div>
+    </header>
+
+    <!-- Accesos rápidos -->
+    <section class="card section">
+      <h3>Accesos rápidos</h3>
+      <div class="grid links" id="linksGrid"></div>
+    </section>
+
+    <!-- Video -->
+    <section class="card section video-section">
+      <h3>Presentación</h3>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Documentos -->
+    <section class="card section pdf-section">
+      <h3>Documentos</h3>
+      <div class="pdf-card">
+        <div class="pdf-img">
+          <img src="img/portada-pdf.png" alt="Portada PDF">
+        </div>
+        <div class="pdf-info">
+          <p class="pdf-title">Ejemplo de Documento</p>
+          <p class="pdf-meta">Páginas: 10</p>
+        </div>
+        <a href="docs/doc.pdf" target="_blank" class="btn-pdf">Abrir</a>
+      </div>
+    </section>
+
+    <!-- QR -->
+    <section class="card section qr-section">
+      <h3>Códigos QR</h3>
+      <div class="qr-card">
+        <div class="qr-img">
+          <img src="" alt="QR de mi tarjeta digital">
+        </div>
+        <div class="qr-info">
+          <p class="qr-title">Mi Tarjeta Digital</p>
+          <p class="qr-meta">Escanéame para abrir el enlace</p>
+          <p class="qr-help">También puedes imprimir este QR y colocarlo en tu mostrador para que tus clientes lo escaneen fácilmente.</p>
+        </div>
+        <div class="qr-actions">
+          <a href="img/qr-cv.png" target="_blank" class="btn-pdf">Ver</a>
+          <a href="img/qr-cv.png" download="" class="btn-outline">Descargar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Redes sociales -->
+    <section class="card section">
+      <h3>Redes sociales</h3>
+      <div class="grid links" id="socialGrid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="card footer">
+      <p>© <span id="year"></span> <span id="brandName"></span>. Todos los derechos reservados creaciones19.</p>
+    </footer>
+  </main>
+
+  <!-- JS externo -->
+  <script src="main.js"></script>
+</body>
+</html>

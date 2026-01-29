@@ -1,0 +1,411 @@
+/* ======================= variables (root) ======================= */
+:root {
+  /* 🎨 Paleta SuperVolante */
+  --color-bg-main: #ffffff;     /* fondo principal blanco */
+  --color-bg-card: #f9f6f9;     /* tarjetas claras */
+  --color-bg-pill: #f2e6f2;     /* pills suaves */
+  --color-bg-badge: #f0e0f0;    /* badge sutil */
+  --color-bg-qr: #ffffff;
+
+  --color-border-card: #e0cfe0;
+  --color-border-btn: #cc99cc;
+  --color-border-pill: #cc99cc;
+  --color-border-badge: #b366b3;
+
+  --color-text-main: #4d004d;    /* texto principal oscuro */
+  --color-text-muted: #7a4d7a;   /* texto secundario */
+  --color-text-heading: #990099; /* títulos */
+  --color-text-badge: #4d004d;
+
+  --accent-main: #990066;  /* magenta fuerte */
+  --accent-alt:  #cc3399;  /* variante más clara */
+  --ring-shadow: rgba(153,0,102,.35);
+
+  --gradient-page-a: rgba(204,51,153,.08);
+  --gradient-page-b: rgba(153,0,102,.08);
+
+  --gradient-btn: linear-gradient(180deg, #cc66a0, #b34d88);
+  --gradient-btn-primary: linear-gradient(180deg, #990066, #660044);
+
+  --shadow-btn-hover: 0 10px 24px rgba(153,0,102,.35);
+  --shadow-card: 0 10px 30px rgba(0,0,0,.15);
+
+  --radius-card: 16px;
+  --radius-pill: 999px;
+  --radius-btn: 14px;
+  --radius-badge: 10px;
+
+  --font-heading: 1rem;
+  --font-btn-kicker: .78rem;
+  --font-btn-label-weight: 700;
+  --font-muted: .85rem;
+  --font-pill: .86rem;
+  --font-badge: .72rem;
+
+  /* Aliases para compatibilidad */
+  --bg-1: var(--color-bg-main);
+  --bg-2: var(--color-bg-card);
+  --text: var(--color-text-main);
+  --muted: var(--color-text-muted);
+  --accent: var(--accent-main);
+  --accent-2: var(--accent-alt);
+  --ring: var(--ring-shadow);
+}
+
+
+/* ======================= base / reset ======================= */
+*{ box-sizing:border-box }
+html, body { height: 100%; }
+
+body{
+  margin:0;
+  padding-top: 0; /* asegura que no tenga padding extra */
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;
+  color: var(--text, #1f2937);
+  background-color: var(--bg-1, #ffffff);
+
+  /* Ponemos cada capa explícita para evitar que el shorthand se “pierda” */
+  background-image:
+    url("fondo.jpg"),
+    radial-gradient(1200px 600px at 10% -10%, var(--gradient-page-a, rgba(204,51,153,.08)), transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, var(--gradient-page-b, rgba(153,0,102,.08)), transparent 60%);
+
+  background-repeat:
+    repeat,
+    no-repeat,
+    no-repeat;
+
+  background-size:
+    64px 64px,  /* tamaño del tile del patrón */
+    auto,
+    auto;
+
+  background-attachment:
+    fixed,
+    fixed,
+    fixed;
+
+  background-position:
+    0 0,
+    center top,
+    center top;
+}
+
+
+/* ======================= layout ======================= */
+.wrap{ max-width:820px; margin:0 auto; padding:10px 28px }
+
+/* header */
+header {
+  display: flex;
+  flex-direction: column; /* en columna */
+  align-items: center;    /* centrado */
+  text-align: center;     /* centra los textos */
+  gap: 12px;
+  margin: 20px 0;
+}
+
+/* Fondo degradado animado para el header */
+header.card {
+  background: linear-gradient(135deg, #fbd3e9, #bb377d);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  color: var(--color-text-main);
+  border-radius: var(--radius-card, 16px);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Animación del degradado */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+}
+
+.avatar img {
+  width: 250px;   /* antes seguro estaba en 100px */
+  height: 250px;
+  border-radius: 50%; /* mantiene la forma circular */
+  object-fit: cover;  /* recorta sin deformar */
+  border: 4px solid var(--primary, #a2007e); /* opcional: borde bonito */
+}
+
+.head-txt h1 {
+  margin-top: 8px;   /* 👈 bájale este valor (default suele ser ~20px) */
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+
+/* card */
+.card{
+  background: var(--bg-2, #101828);
+  border:1px solid var(--color-border-card, #1f2a44);
+  border-radius: var(--radius-card, 16px);
+  padding:16px;
+  box-shadow: var(--shadow-card, 0 10px 30px rgba(0,0,0,.35));
+}
+
+/* grid links */
+.grid{ display:grid; gap:14px }
+.links{ grid-template-columns:1fr }
+@media(min-width:640px){ .links{ grid-template-columns:1fr 1fr } }
+
+/* buttons */
+.btn{
+  display:flex; align-items:center; gap:12px; width:100%;
+  padding:14px 16px; border-radius: var(--radius-btn, 14px);
+  text-decoration:none; color: var(--text, #e5e7eb);
+  background: var(--gradient-btn, linear-gradient(180deg, #172033, #121a2a));
+  border:1px solid var(--color-border-btn, #24314f);
+  transition:.2s ease; position:relative;
+  display: flex;
+  flex-direction: column;     /* Ícono arriba, texto debajo */
+  align-items: center;        /* Centra horizontal */
+  justify-content: center;    /* Centra vertical */
+  gap: 4px;                   /* Espacio entre icono y texto */
+  text-align: center;         /* Centra texto */
+}
+.btn:hover{ transform: translateY(-2px); box-shadow: var(--shadow-btn-hover, 0 10px 24px rgba(29,185,84,.35)) }
+.btn .ico{ width:22px; height:22px; flex:0 0 22px; opacity:.95 }
+.btn .kicker{ font-size: var(--font-btn-kicker, .78rem); color: var(--muted, #9ca3af); display:block }
+.btn .label{ font-weight: var(--font-btn-label-weight, 700) }
+.btn.primary{
+  background: var(--gradient-btn-primary, linear-gradient(180deg, #1db954, #15a64a));
+  border-color: var(--accent, #1db954);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.btn i { margin-right: 8px; }
+
+.btn.share {
+  background: #28a745;  /* Verde */
+  color: #fff;
+}
+
+.btn.save {
+  background: #6c63ff;  /* Morado */
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* section titles */
+.section{ margin:22px 0 }
+.section h3{
+  margin:0 0 12px;
+  font-size: var(--font-heading, 1rem);
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  color: var(--color-text-heading, #a7f3d0);
+}
+
+/* footer */
+.footer{
+  margin:22px 0 10px; color: var(--muted, #9ca3af);
+  font-size: var(--font-muted, .85rem);
+  display:flex; gap:8px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+}
+.footer a{ color: var(--muted, #9ca3af) }
+
+/* misc */
+.hint{ font-size:.82rem; color: var(--muted, #9ca3af) }
+.divider{
+  height:1px;
+  background:linear-gradient(90deg, transparent, #263558, transparent);
+  margin:16px 0;
+}
+.badge{
+  font-size: var(--font-badge, .72rem);
+  padding:5px 8px;
+  border-radius: var(--radius-badge, 10px);
+  background: var(--color-bg-badge, #122036);
+  border:1px solid var(--color-border-badge, #264169);
+  color: var(--color-text-badge, #cbd5e1);
+}
+.accent{ color: var(--accent, #1db954) }
+
+/* Botón WhatsApp especial */
+.btn.whatsapp {
+  background: #25D366 !important; /* verde oficial de WhatsApp */
+  border: 1px solid #1ebe5d !important;
+  color: #ffffff !important;
+}
+
+.btn.whatsapp .kicker {
+  color: #ffffff !important;
+}
+
+.btn.whatsapp .ico {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.video-section {
+  margin: 24px 0;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* relación 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 16px;
+}
+
+.pdf-section {
+  margin: 32px 0;
+}
+
+.pdf-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 16px;
+  text-align: center;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.pdf-img img {
+  max-width: 160px;
+  margin: 0 auto 12px;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.pdf-info .pdf-title {
+  font-weight: 700;
+  margin: 4px 0;
+  color: #333;
+}
+
+.pdf-info .pdf-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0 0 12px;
+}
+
+.btn-pdf {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--accent, #bb377d);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-pdf:hover {
+  background: #a82f6d;
+}
+
+/* ===== Sección QR ===== */
+.qr-section { margin: 32px 0; }
+
+.qr-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 16px;
+  text-align: center;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.qr-img {
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px;
+  display: inline-block;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.qr-img img {
+  width: 160px;       /* tamaño visible del QR */
+  height: 160px;
+  display: block;
+}
+
+.qr-info .qr-title {
+  font-weight: 700;
+  margin: 12px 0 4px;
+  color: #333;
+}
+.qr-info .qr-meta {
+  font-size: .9rem;
+  color: #777;
+  margin: 0 0 14px;
+}
+
+/* Botones */
+.qr-actions { display:flex; gap:10px; justify-content:center; }
+.btn-outline {
+  display:inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  color: var(--accent, #bb377d);
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid var(--accent, #bb377d);
+  transition: .3s ease;
+}
+.btn-outline:hover {
+  background: rgba(187,55,125,.08);
+}
+
+/* (ya tienes .btn-pdf; se reutiliza como botón sólido) */
+
+.qr-help {
+  font-size: 0.85rem;
+  color: #555;
+  background: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 260px;
+  line-height: 1.3;
+  font-style: italic;
+}
