@@ -24,10 +24,14 @@ const CONFIG = {
       primary: true,
       class: "whatsapp"
     },
-    { label: "Sitio Web", sub:"creaciones.19", url: "", icon: "globe" },
-    { label: "Portafolio", sub:"informacion", url: "", icon: "folder" },
-    { label: "Tienda", sub:"Productos", url: "", icon: "cart" }
-  ],
+    { label: "Sitio Web", sub: "creaciones.19", url: "https://creaciones19.github.io", icon: "globe" },
+{ label: "Portafolio", sub: "Procedimientos", url: "procedimientos.html", icon: "folder" },
+
+// { label: "Tienda"tambie se puede usar en ves de productos cambos el icon par congruesia, sub: "Productos", url: "productos.html", icon: "cart" },
+
+{ label: "Productos", sub: "Recomendaciones médicas", url: "productos.html", icon: "cart" },
+
+],
   social: [
     { label:"Facebook", url:"", icon:"facebook" },
     { label:"Instagram", url:"", icon:"instagram" },
@@ -52,19 +56,37 @@ const el = (tag, attrs={}, {children=[]}={}) => {
 
 // =================== ICONOS ===================
 const ICONS = {
-  whatsapp:`<i class="fab fa-whatsapp"></i>`,
-  globe:`<i class="fas fa-globe"></i>`,
-  folder:`<i class="fas fa-folder"></i>`,
-  cart:`<i class="fas fa-shopping-cart"></i>`,
-  mail:`<i class="fas fa-envelope"></i>`,
-  phone:`<i class="fas fa-phone"></i>`,
-  map:`<i class="fas fa-map-marker-alt"></i>`,
-  facebook:`<i class="fab fa-facebook"></i>`,
-  instagram:`<i class="fab fa-instagram"></i>`,
-  tiktok:`<i class="fab fa-tiktok"></i>`,
-  youtube:`<i class="fab fa-youtube"></i>`,
-  linkedin:`<i class="fab fa-linkedin"></i>`
+  // 📲 WhatsApp (contacto directo)
+  whatsapp: `<i class="fab fa-whatsapp"></i>`,
+
+  // 🌐 Sitio web / información general
+  globe: `<i class="fas fa-globe"></i>`,
+
+  // 🩺 Procedimientos / tratamientos médicos
+  folder: `<i class="fas fa-stethoscope"></i>`,
+  // folder: `<i class="fas fa-folder"></i>`, // ← genérico (para otros proyectos) es un follder de archivo
+
+  // 💊 Productos / suplementos / medicamentos
+  cart: `<i class="fas fa-capsules"></i>`,
+  // cart: `<i class="fas fa-shopping-cart"></i>`, // ← e-commerce genérico es un carrito de compra
+
+  // ✉️ Correo
+  mail: `<i class="fas fa-envelope"></i>`,
+
+  // ☎️ Teléfono
+  phone: `<i class="fas fa-phone"></i>`,
+
+  // 📍 Ubicación / consultorio
+  map: `<i class="fas fa-map-marker-alt"></i>`,
+
+  // 🌐 Redes sociales
+  facebook: `<i class="fab fa-facebook"></i>`,
+  instagram: `<i class="fab fa-instagram"></i>`,
+  tiktok: `<i class="fab fa-tiktok"></i>`,
+  youtube: `<i class="fab fa-youtube"></i>`,
+  linkedin: `<i class="fab fa-linkedin"></i>`
 };
+
 
 // =================== RENDER DINÁMICO ===================
 $('#ownerName').textContent = CONFIG.owner.name;
