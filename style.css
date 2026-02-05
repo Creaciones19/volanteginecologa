@@ -17,17 +17,19 @@
   --color-text-heading: #990099; /* títulos */
   --color-text-badge: #4d004d;
 
-  --accent-main: #990066;  /* magenta fuerte */
-  --accent-alt:  #cc3399;  /* variante más clara */
-  --ring-shadow: rgba(153,0,102,.35);
+  /* ✅ Solo cambia estas (para rosa pastel, menos fuerte) */
+--accent-main: #e9a7c4;      /* rosa pastel principal */
+--accent-alt:  #f3bfd4;      /* rosa pastel más claro */
+--ring-shadow: rgba(233,167,196,.45);
 
-  --gradient-page-a: rgba(204,51,153,.08);
-  --gradient-page-b: rgba(153,0,102,.08);
+--gradient-page-a: rgba(233,167,196,.12);
+--gradient-page-b: rgba(243,191,212,.10);
 
-  --gradient-btn: linear-gradient(180deg, #cc66a0, #b34d88);
-  --gradient-btn-primary: linear-gradient(180deg, #990066, #660044);
+--gradient-btn: linear-gradient(180deg, #f3bfd4, #e9a7c4);
+--gradient-btn-primary: linear-gradient(180deg, #e9a7c4, #d98db1);
 
-  --shadow-btn-hover: 0 10px 24px rgba(153,0,102,.35);
+--shadow-btn-hover: 0 10px 24px rgba(233,167,196,.35);
+
   --shadow-card: 0 10px 30px rgba(0,0,0,.15);
 
   --radius-card: 16px;
